@@ -3,3 +3,4 @@ alias 5="cd $HOME/workspace/gpdb5/ && source gpAux/greenplum-db-devel/greenplum_
 alias 4="cd $HOME/workspace/gpdb4/ && source gpAux/greenplum-db-devel/greenplum_path.sh && source gpAux/gpdemo/gpdemo-env.sh"
 alias p='ps auxww | grep postgres'
 alias retag='ctags -e -R . TAGS'
+alias merge="cd $HOME/workspace/gpdb-postgres-merge && source gpAux/greenplum-db-devel/greenplum_path.sh && source gpAux/gpdemo-env.sh"
