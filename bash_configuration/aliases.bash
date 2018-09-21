@@ -12,6 +12,7 @@ function setup_gpdb_navigation {
   alias 4="cd $HOME/workspace/gpdb4/ && $SOURCE_GREENPLUM && $SOURCE_DEMO_ENV"
   alias merge="cd $HOME/workspace/gpdb-postgres-merge && $SOURCE_GREENPLUM && $SOURCE_DEMO_ENV"
   alias tools="cd $HOME/workspace/gpdb-tools"
+  alias pglog='cd $MASTER_DATA_DIRECTORY/pg_log && ll'
 }
 
 function disable_vim {
