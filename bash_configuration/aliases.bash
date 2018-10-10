@@ -31,7 +31,7 @@ function main {
   setup_debugging_tools
   setup_ctags_helpers
   setup_gpdb_navigation
-  disable_vim
+  #disable_vim
 }
 
 main
