@@ -3,3 +3,7 @@ compile_commands.json
 
 gpAux/greenplum-db-devel/
 src/test/isolation2/<stdout>.*
+
+postgresql-dev/
+postgresql-dev-data/
+postgresql.log

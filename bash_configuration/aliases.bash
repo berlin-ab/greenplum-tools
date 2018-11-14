@@ -6,8 +6,9 @@ function setup_ctags_helpers {
 function setup_gpdb_navigation {
   SOURCE_GREENPLUM='source gpAux/greenplum-db-devel/greenplum_path.sh'
   SOURCE_DEMO_ENV='source gpAux/gpdemo/gpdemo-env.sh'
+  SOURCE_PG='PATH=$PWD/postgresql-dev/bin:$PATH'
 
-  alias pg="cd $HOME/workspace/postgres"
+  alias pg="cd $HOME/workspace/postgres && $SOURCE_PG"
   alias 6="cd $HOME/workspace/gpdb/ && $SOURCE_GREENPLUM && $SOURCE_DEMO_ENV"
   alias 5="cd $HOME/workspace/gpdb5/ && $SOURCE_GREENPLUM && $SOURCE_DEMO_ENV"
   alias 4="cd $HOME/workspace/gpdb4/ && $SOURCE_GREENPLUM && $SOURCE_DEMO_ENV"
