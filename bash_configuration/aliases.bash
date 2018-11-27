@@ -3,14 +3,26 @@ function setup_ctags_helpers {
 }
 
 tail_last_logfile() {
-  tail -n100 -f `ls -t | head -n1`
+  tail -n100 -f "$(ls -t | head -n1)"
+}
+
+get_pids() {
+  awk '{print $2}'
+}
+
+kill_pids() {
+  local pids_to_kill
+  
+  pids_to_kill=$(get_pids | tr '\n' ' ')
+  echo "Killing $pids_to_kill"
+  kill "$pids_to_kill" > /dev/null 2>&1
 }
 
 cd_to_workspace() {
   local workspace_directory=$1;
   local new_directory="$HOME/workspace/$workspace_directory"
   echo "Switching to $workspace_directory: $new_directory"
-  cd $new_directory;
+  cd "$new_directory";
 }
 
 function setup_gpdb_navigation {
