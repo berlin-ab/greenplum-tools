@@ -1,6 +1,16 @@
-
 function setup_ctags_helpers {
   alias retag='ctags -e -R . TAGS'
+}
+
+tail_last_logfile() {
+  tail -n100 -f `ls -t | head -n1`
+}
+
+cd_to_workspace() {
+  local workspace_directory=$1;
+  local new_directory="$HOME/workspace/$workspace_directory"
+  echo "Switching to $workspace_directory: $new_directory"
+  cd $new_directory;
 }
 
 function setup_gpdb_navigation {
@@ -8,20 +18,13 @@ function setup_gpdb_navigation {
   SOURCE_DEMO_ENV='source gpAux/gpdemo/gpdemo-env.sh'
   SOURCE_PG='PATH=$PWD/postgresql-dev/bin:$PATH'
 
-  alias pg="cd $HOME/workspace/postgres && $SOURCE_PG"
-  alias 6="cd $HOME/workspace/gpdb/ && $SOURCE_GREENPLUM && $SOURCE_DEMO_ENV"
-  alias 5="cd $HOME/workspace/gpdb5/ && $SOURCE_GREENPLUM && $SOURCE_DEMO_ENV"
-  alias 4="cd $HOME/workspace/gpdb4/ && $SOURCE_GREENPLUM && $SOURCE_DEMO_ENV"
-  alias merge="cd $HOME/workspace/gpdb-postgres-merge && $SOURCE_GREENPLUM && $SOURCE_DEMO_ENV"
-  alias tools="cd $HOME/workspace/gpdb-tools"
-  alias pglog='cd $MASTER_DATA_DIRECTORY/pg_log && ls -ltr'
-}
-
-function disable_vim {
-  VIM_COMMAND="echo 'Disabled vim. Please use emacs.'"
-
-  alias vim=$VIM_COMMAND
-  alias vi=$VIM_COMMAND
+  alias pg="cd_to_workspace postgres && $SOURCE_PG"
+  alias 6="cd_to_workspace gpdb && $SOURCE_GREENPLUM && $SOURCE_DEMO_ENV"
+  alias 5="cd_to_workspace gpdb5 && $SOURCE_GREENPLUM && $SOURCE_DEMO_ENV"
+  alias 4="cd_to_workspace gpdb4 && $SOURCE_GREENPLUM && $SOURCE_DEMO_ENV"
+  alias merge="cd_to_workspace gpdb-postgres-merge && $SOURCE_GREENPLUM && $SOURCE_DEMO_ENV"
+  alias tools="cd_to_workspace gpdb-tools"
+  alias pglog='cd $MASTER_DATA_DIRECTORY/pg_log && tail_last_logfile'
 }
 
 function setup_debugging_tools {
@@ -33,7 +36,6 @@ function main {
   setup_debugging_tools
   setup_ctags_helpers
   setup_gpdb_navigation
-  #disable_vim
 }
 
 main
