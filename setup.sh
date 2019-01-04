@@ -8,6 +8,9 @@ main() {
 
 	source "$tools_directory/bash_configuration/aliases.bash"
 	source "$tools_directory/bash_configuration/variables.bash"
+
+	initialize_variables $tools_directory
+	initialize_aliases
 }
 
 main

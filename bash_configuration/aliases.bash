@@ -43,10 +43,9 @@ function setup_debugging_tools {
   alias p='ps auxww | grep postgres'
 }
 
-function main {
+function initialize_aliases {
   setup_debugging_tools
   setup_ctags_helpers
   setup_gpdb_navigation
 }
 
-main
