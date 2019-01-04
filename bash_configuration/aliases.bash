@@ -44,7 +44,6 @@ function setup_debugging_tools {
 }
 
 function main {
-  echo "Using $HOME/workspace/gpdb-tools."
   setup_debugging_tools
   setup_ctags_helpers
   setup_gpdb_navigation
