@@ -18,7 +18,20 @@
 (global-set-key (kbd "M-n") 'er/contract-region)
 (pending-delete-mode t)
 
+;; Configure neotree
+(require 'neotree)
+(global-set-key (kbd "C-M-\\") 'neotree-toggle)
+(setq neo-smart-open t)
+
 ;; Coding
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(setq auto-save-visited-mode t)
+(require 'real-auto-save)
+(add-hook 'prog-mode-hook 'real-auto-save-mode)
+(setq real-auto-save-interval 1) ;; seconds
+
 (which-function-mode t)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 (global-git-gutter-mode +1)
+
+
