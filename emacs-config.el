@@ -17,3 +17,8 @@
 (global-set-key (kbd "M-u") 'er/expand-region)
 (global-set-key (kbd "M-n") 'er/contract-region)
 (pending-delete-mode t)
+
+;; Coding
+(which-function-mode t)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(global-git-gutter-mode +1)
