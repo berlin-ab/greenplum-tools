@@ -6,6 +6,8 @@
 
 
 (defun main ()
+
+
   (defun install-third-party-packages ()
     (package-initialize)
 
@@ -25,8 +27,10 @@
     (use-package grandshell-theme :ensure t)
     (use-package projectile :ensure t))
 
+
   (defun configure-theme ()
     (load-theme 'misterioso))
+
 
   (defun setup-keyboard-shortcuts ()
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
@@ -34,6 +38,7 @@
     (global-set-key (kbd "M-u") 'er/expand-region)
     (global-set-key (kbd "M-n") 'er/contract-region)
     (global-set-key (kbd "C-M-\\") 'neotree-toggle))
+
 
   (defun require-and-configure-third-party-libraries ()
     ;; Require and configure third-party libraries
@@ -59,27 +64,40 @@
     )
 
   
+  (defun setup-flycheck ()
+    (add-hook 'after-init-hook #'global-flycheck-mode))
+
+
+  (defun setup-rainbow-parentheses ()
+    (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+
+
+  (defun setup-git-gutter ()
+    (global-git-gutter-mode +1))
+
+
+  (defun display-current-function ()
+    (which-function-mode t))
+
+
+  (defun load-greenplum-emacs-configuration ()
+    (load-file "~/workspace/gpdb/src/tools/editors/emacs.samples"))
+
+  
   ;;
   ;; Configuration steps
   ;;
   (install-third-party-packages)
   (configure-theme)
   (require-and-configure-third-party-libraries)
-
-  
-  ;; Load Postgres/Greenplum code style
-  (load-file "~/workspace/gpdb/src/tools/editors/emacs.samples")
-
-
-  ;; Coding
-  (add-hook 'after-init-hook #'global-flycheck-mode)
-  (which-function-mode t)
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-  (global-git-gutter-mode +1))
-
+  (load-greenplum-emacs-configuration)
+  (setup-flycheck)
+  (display-current-function)
+  (setup-rainbow-parentheses)
+  (setup-git-gutter)
+  )
 
 ;;
 ;; Run the configuration
 ;;
 (main)
-
