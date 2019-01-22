@@ -53,7 +53,6 @@
 
     ;; Configure neotree
     (require 'neotree)
-    (setq neo-smart-open t)
 
     
     ;; Autosave
@@ -83,18 +82,28 @@
   (defun load-greenplum-emacs-configuration ()
     (load-file "~/workspace/gpdb/src/tools/editors/emacs.samples"))
 
-  
+
+  (defun show-line-numbers-in-gutter ()
+    (global-linum-mode t))
+
+
+  (defun highlight-the-current-buffer ()
+    (require 'dimmer)
+    (dimmer-mode))
   ;;
   ;; Configuration steps
   ;;
   (install-third-party-packages)
   (configure-theme)
+  (setup-keyboard-shortcuts)		;
   (require-and-configure-third-party-libraries)
   (load-greenplum-emacs-configuration)
   (setup-flycheck)
   (display-current-function)
   (setup-rainbow-parentheses)
   (setup-git-gutter)
+  ;;(show-line-numbers-in-gutter)
+  (highlight-the-current-buffer)
   )
 
 ;;
