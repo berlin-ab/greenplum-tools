@@ -95,14 +95,16 @@
   ;;
   (install-third-party-packages)
   (configure-theme)
-  (setup-keyboard-shortcuts)		;
+  (setup-keyboard-shortcuts)
   (require-and-configure-third-party-libraries)
   (load-greenplum-emacs-configuration)
   (setup-flycheck)
   (display-current-function)
   (setup-rainbow-parentheses)
+
+  (show-line-numbers-in-gutter)
   (setup-git-gutter)
-  ;;(show-line-numbers-in-gutter)
+  
   (highlight-the-current-buffer)
   )
 
