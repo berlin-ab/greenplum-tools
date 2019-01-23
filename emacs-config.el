@@ -25,7 +25,10 @@
     (use-package ag :ensure t)
     (use-package aggressive-indent :ensure t)
     (use-package grandshell-theme :ensure t)
-    (use-package projectile :ensure t))
+    (use-package projectile :ensure t)
+    (use-package ivy :ensure t)
+    (use-package auto-complete :ensure t)
+    )
 
 
   (defun configure-theme ()
@@ -44,7 +47,7 @@
     ;; Require and configure third-party libraries
     (require 'projectile)
     (projectile-mode +1)
-
+    (setq projectile-completion-system 'ivy)
     
     ;; Configure expand-region
     (require 'expand-region)
@@ -90,6 +93,12 @@
   (defun highlight-the-current-buffer ()
     (require 'dimmer)
     (dimmer-mode))
+
+  (defun enable-autocompletion ()
+    (ac-config-default)
+    )
+
+
   ;;
   ;; Configuration steps
   ;;
@@ -101,11 +110,10 @@
   (setup-flycheck)
   (display-current-function)
   (setup-rainbow-parentheses)
-
   (show-line-numbers-in-gutter)
   (setup-git-gutter)
-  
   (highlight-the-current-buffer)
+  (enable-autocompletion)
   )
 
 ;;
