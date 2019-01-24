@@ -48,6 +48,8 @@
     (require 'projectile)
     (projectile-mode +1)
     (setq projectile-completion-system 'ivy)
+    (setq ivy-re-builders-alist
+      '((t . ivy--regex-fuzzy)))
     
     ;; Configure expand-region
     (require 'expand-region)
