@@ -1,10 +1,22 @@
 # GPDB Tools
 
-A collection of bash scripts, variables, and aliases to aid in GPDB development
+
+1. A collection of bash scripts, variables, and aliases to aid in GPDB development.
+2. Editor configurations:
+   * emacs
+
 
 ## Installation
 
+1.
+
 `source /path/to/gpdb-tools/setup.bash`
+
+2. 
+
+Edit your emacs configuration to include:
+`(load-file "~/workspace/gpdb-tools/emacs-config.el")`
+
 
 ## Aliases
 
