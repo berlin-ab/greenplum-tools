@@ -1,10 +1,9 @@
 # GPDB Tools
 
-
-1. A collection of bash scripts, variables, and aliases to aid in GPDB development.
-2. Editor configurations:
+- A collection of bash scripts, variables, and aliases to aid in GPDB development.
+- Editor configurations:
    * emacs
-
+   * (hopefully more soon)
 
 ## Installation
 
@@ -15,6 +14,7 @@
 2. 
 
 Edit your emacs configuration to include:
+
 `(load-file "~/workspace/gpdb-tools/emacs-config.el")`
 
 
@@ -66,7 +66,9 @@ jdoe+  15220  0.0  0.0 347644  5736 ?        Ss   09:40   0:00 postgres: 16432, 
 ## Assumptions
 
 * GPDB directories:
+
   - $HOME/workspace/gpdb4 # greenplum-db/gpdb4/4.3_STABLE
   - $HOME/workspace/gpdb5 # greenplum-db/gpdb/5X_STABLE
   - $HOME/workspace/gpdb # greenplum-db/gpdb/master
+  - $HOME/workspace/gpdb-tools # berlin-ab/gpdb-tools/master
 
