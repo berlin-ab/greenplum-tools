@@ -100,6 +100,8 @@
     (ac-config-default)
     )
 
+  (defun ignore-large-ctags-file ()
+    (setq large-file-warning-threshold nil))
 
   ;;
   ;; Configuration steps
@@ -116,6 +118,7 @@
   (setup-git-gutter)
   (highlight-the-current-buffer)
   (enable-autocompletion)
+  (ignore-large-ctags-file)
   )
 
 ;;
