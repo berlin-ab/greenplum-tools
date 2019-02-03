@@ -10,7 +10,7 @@ add_home_directory_bin_to_path() {
 }
 
 setup_vim_as_git_editor() {
-	export GIT_EDITOR=vim
+	export GIT_EDITOR=emacs
 }
 
 initialize_variables() {
