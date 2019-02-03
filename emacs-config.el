@@ -28,6 +28,7 @@
     (use-package projectile :ensure t)
     (use-package ivy :ensure t)
     (use-package auto-complete :ensure t)
+    (use-package git-commit :ensure t)
     )
 
 

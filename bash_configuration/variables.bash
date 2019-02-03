@@ -20,3 +20,4 @@ initialize_variables() {
 	add_home_directory_bin_to_path
 	setup_vim_as_git_editor
 }
+
