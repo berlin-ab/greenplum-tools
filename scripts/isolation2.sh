@@ -30,7 +30,7 @@ main() {
     change_to_project_root
     quick_reinstall
     change_to_isolation2_directory
-    case 
+
     run_isolation2 $1
 }
 
