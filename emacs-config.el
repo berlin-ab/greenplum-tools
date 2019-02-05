@@ -104,6 +104,9 @@
   (defun ignore-large-ctags-file ()
     (setq large-file-warning-threshold nil))
 
+  (defun regress-source-files-display-as-sql ()
+    (add-to-list 'auto-mode-alist '("\\.source\\'" . sql-mode)))
+
   ;;
   ;; Configuration steps
   ;;
@@ -120,6 +123,7 @@
   (highlight-the-current-buffer)
   (enable-autocompletion)
   (ignore-large-ctags-file)
+  (regress-source-files-display-as-sql)
   )
 
 ;;
