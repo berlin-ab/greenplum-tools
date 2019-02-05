@@ -1,20 +1,6 @@
 #!/usr/bin/env bash
 
-
-change_to_project_root() {
-  local project_root=$(git rev-parse --show-toplevel);
-  pushd "$project_root";
-}
-
-
-change_to_isolation2_directory() {
-    pushd "src/test/isolation2"
-}
-
-
-quick_reinstall() {
-    make install -s
-}
+source "$(dirname $0)/lib/shared.bash";
 
 
 run_isolation2() {

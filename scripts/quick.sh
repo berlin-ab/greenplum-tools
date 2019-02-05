@@ -2,27 +2,19 @@
 
 set -e
 
-change_to_project_root() {
-  local project_root=$(git rev-parse --show-toplevel);
-  pushd "$project_root";
-}
 
-change_to_original_directory() {
-  popd;
-}
+source "$(dirname $0)/lib/shared.bash";
 
-build() {
-    make install -s
-}
 
 message_rebuilding() {
   echo "Rebuilding gpdb."
 }
 
+
 function main {
     change_to_project_root
     message_rebuilding
-    build
+    quick_reinstall
     change_to_original_directory
 }
 

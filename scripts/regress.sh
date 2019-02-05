@@ -1,21 +1,31 @@
 #!/usr/bin/env bash
 
+set -e;
+
+
+source "$(dirname $0)/lib/shared.bash";
+
+
 REGRESSION_FILE_NAME=$1
 
+
 function switch_to_regression_directory {
-    pushd `git rev-parse --show-toplevel` && \
-	cd src/test/regress;
+    change_to_project_root
+    cd src/test/regress;
 }
 
+
 function run_regression_test {
-    make install -s && \
+    quick_reinstall && \
 	./pg_regress --init-file init_file $REGRESSION_FILE_NAME
 }
+
 
 function show_output {
     test -e regression.diffs && \
 	cat regression.diffs
 }
+
 
 function main {
     switch_to_regression_directory
@@ -23,4 +33,5 @@ function main {
     show_output
 }
 
-main
+
+main "$@"
