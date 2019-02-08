@@ -13,11 +13,16 @@ setup_vim_as_git_editor() {
 	export GIT_EDITOR=emacs
 }
 
+setup_locale() {
+    export LC_ALL=en_US.UTF-8
+}
+
 initialize_variables() {
 	local tools_directory=$1
 
 	add_scripts_to_path $tools_directory
 	add_home_directory_bin_to_path
 	setup_vim_as_git_editor
+	setup_locale
 }
 
