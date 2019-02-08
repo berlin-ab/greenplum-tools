@@ -8,7 +8,7 @@ run_isolation2() {
 	make install -s && \
        ./pg_isolation2_regress --init-file ../regress/init_file $1
     
-    test regression.diffs && cat regression.diffs
+    (test -e regression.diffs && cat regression.diffs) || true
 }
 
 
