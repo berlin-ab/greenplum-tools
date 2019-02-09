@@ -4,9 +4,7 @@
 ;;;
 ;;;
 
-
 (defun main ()
-
 
   (defun install-third-party-packages ()
     (package-initialize)
@@ -28,7 +26,9 @@
     (use-package projectile :ensure t)
     (use-package ivy :ensure t)
     (use-package auto-complete :ensure t)
+    (use-package git-gutter :ensure t)
     (use-package git-commit :ensure t)
+    (use-package dimmer :ensure t)
     )
 
 
