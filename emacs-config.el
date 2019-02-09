@@ -29,6 +29,7 @@
     (use-package git-gutter :ensure t)
     (use-package git-commit :ensure t)
     (use-package dimmer :ensure t)
+    (use-package multiple-cursors :ensure t)
     )
 
 
@@ -39,9 +40,13 @@
   (defun setup-keyboard-shortcuts ()
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
     (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)
-    (global-set-key (kbd "M-u") 'er/expand-region)
-    (global-set-key (kbd "M-n") 'er/contract-region)
-    (global-set-key (kbd "C-M-\\") 'neotree-toggle))
+    (global-set-key (kbd "C-M-\\") 'neotree-toggle)
+
+    ;; multiple cursors
+    (global-set-key (kbd "C-i") 'mc/mark-next-like-this)
+    (global-set-key (kbd "M-=") 'er/expand-region)
+    (global-set-key (kbd "M--") 'er/contract-region)
+    )
 
 
   (defun require-and-configure-third-party-libraries ()
@@ -59,6 +64,9 @@
 
     ;; Configure neotree
     (require 'neotree)
+
+    ;; Require multiple cursors
+    (require 'multiple-cursors)
 
     
     ;; Autosave

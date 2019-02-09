@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
 sudo add-apt-repository universe
-sudo apt install emacs25-nox
+
+# Install apt dependencies
+sudo apt install \
+     emacs25-nox \
+     silversearcher-ag;
 
 # install pyenv
 curl https://pyenv.run | bash
