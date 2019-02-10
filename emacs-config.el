@@ -44,8 +44,8 @@
 
     ;; multiple cursors
     (global-set-key (kbd "C-i") 'mc/mark-next-like-this)
-    (global-set-key (kbd "M-=") 'er/expand-region)
-    (global-set-key (kbd "M--") 'er/contract-region)
+    (global-set-key (kbd "C-_") 'er/expand-region)
+    (global-set-key (kbd "C-M-_") 'er/contract-region)
     )
 
 
