@@ -41,12 +41,9 @@
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
     (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)
     (global-set-key (kbd "C-M-\\") 'neotree-toggle)
-
-    ;; multiple cursors
-    (global-set-key (kbd "C-i") 'mc/mark-next-like-this)
-    (global-set-key (kbd "C-_") 'er/expand-region)
-    (global-set-key (kbd "C-M-_") 'er/contract-region)
+    (global-set-key (kbd "C-M-]") 'mc/mark-next-like-this)
     )
+  
 
 
   (defun require-and-configure-third-party-libraries ()
@@ -98,7 +95,9 @@
 
 
   (defun show-line-numbers-in-gutter ()
-    (global-linum-mode t))
+    (global-linum-mode t)
+    (git-gutter:linum-setup)
+    )
 
 
   (defun highlight-the-current-buffer ()
