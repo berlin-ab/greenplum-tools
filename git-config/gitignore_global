@@ -17,3 +17,5 @@ postgresql.log
 
 TAGS
 *~
+
+/.ccache/
