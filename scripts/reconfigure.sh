@@ -3,8 +3,18 @@ echo "Reconfiguring $PWD"
 echo "Re-running configure."
 ./configure --silent CC='ccache gcc' \
 	    --prefix=${PWD}/gpAux/greenplum-db-devel \
-	    --disable-orca --with-libxml --with-python \
-	    --with-perl --enable-mapreduce --enable-debug \
-	    --enable-cassert --enable-tap-tests --with-openssl \
-	    CFLAGS=-O0 CPPFLAGS=-O0
+	    --with-libxml \
+	    --with-python \
+	    --with-perl \
+	    --disable-orca \
+	    --with-openssl \
+	    --enable-gpfdist \
+	    --enable-tap-tests \
+	    --enable-mapreduce \
+	    --enable-debug \
+	    --enable-cassert \
+	    --enable-tap-tests \
+	    --enable-depend \
+	    CFLAGS='-O0' \
+	    CXXFLAGS='-O0'
 
