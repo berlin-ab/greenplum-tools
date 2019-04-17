@@ -10,6 +10,7 @@ echo "Re-running configure."
 	    --with-openssl \
 	    --enable-gpfdist \
 	    --enable-tap-tests \
+	    --enable-debug-extensions \
 	    --enable-mapreduce \
 	    --enable-debug \
 	    --enable-cassert \
