@@ -40,12 +40,22 @@ source_gpdemo() {
 }
 
 
+setup_gpdb_7() {
+    export MASTER_PORT=7000;
+    export STANDBY_PORT=7001;
+    export PORT_BASE=7002;
+
+    cd_to_workspace gpdb7
+    source_greenplum
+    source_gpdemo
+}
+
 setup_gpdb_6() {
     export MASTER_PORT=6000;
     export STANDBY_PORT=6001;
     export PORT_BASE=6002;
     
-    cd_to_workspace gpdb
+    cd_to_workspace gpdb6
     source_greenplum
     source_gpdemo
 }
@@ -77,6 +87,7 @@ setup_gpdb_navigation() {
     SOURCE_PG='PATH=$PWD/postgresql-dev/bin:$PATH'
 
     alias pg="cd_to_workspace postgres && $SOURCE_PG"
+    alias 7="setup_gpdb_7"
     alias 6="setup_gpdb_6"
     alias 5="setup_gpdb_5"
     alias 4="setup_gpdb_4"
