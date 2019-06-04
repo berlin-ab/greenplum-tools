@@ -1,4 +1,4 @@
-echo "Reconfiguring $PWD"
+echo "Reconfiguring gpdb4 for $PWD"
 
 echo "Re-running configure."
 ./configure --silent CC='ccache gcc' \
@@ -6,12 +6,8 @@ echo "Re-running configure."
 	    --with-libxml \
 	    --with-python \
 	    --with-perl \
-	    --without-zstd \
 	    --disable-orca \
 	    --disable-gpfdist \
-	    --with-openssl \
-	    --enable-tap-tests \
-	    --enable-debug-extensions \
 	    --enable-debug \
 	    --enable-cassert \
 	    --enable-tap-tests \
