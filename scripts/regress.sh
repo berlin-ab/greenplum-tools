@@ -15,14 +15,10 @@ function switch_to_regression_directory {
 }
 
 
-function run_regression_test {
-    local print_failure_diffs='--print-failure-diffs'; # for 6x+
-    #local print_failure_diffs=''; # for 5x
-    
+function run_regression_test {    
     quick_reinstall && \
 	./pg_regress --init-file init_file \
 		     --load-extension=gp_inject_fault \
-		     $print_failure_diffs \
 		     $REGRESSION_FILE_NAME
 }
 
