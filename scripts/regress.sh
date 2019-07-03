@@ -17,7 +17,7 @@ function switch_to_regression_directory {
 
 function run_regression_test {    
     quick_reinstall && \
-	./pg_regress --init-file init_file \
+	time ./pg_regress --init-file init_file \
 		     --load-extension=gp_inject_fault \
 		     $REGRESSION_FILE_NAME
 }
