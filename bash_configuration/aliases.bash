@@ -83,6 +83,15 @@ setup_gpdb_4() {
 }
 
 
+switch_to_data_dir() {
+    local DATA_DIR_ROOT=$1;
+    local DATA_DIR_NAME=$2;
+    local DATA_DIR="$MASTER_DATA_DIRECTORY/../../${DATA_DIR_ROOT}/${DATA_DIR_NAME}"
+
+    cd "$DATA_DIR"
+}
+
+
 setup_gpdb_navigation() {
     SOURCE_PG='PATH=$PWD/postgresql-dev/bin:$PATH'
 
@@ -94,6 +103,16 @@ setup_gpdb_navigation() {
   
     alias merge="cd_to_workspace gpdb-postgres-merge && $SOURCE_GREENPLUM && $SOURCE_DEMO_ENV"
     alias tools="cd_to_workspace gpdb-tools"
+
+    # Once a version has been chosen
+    # switch to data directories
+    alias qddir="switch_to_data_dir qddir demoDataDir-1"
+    alias dbfast1="switch_to_data_dir dbfast1 demoDataDir0"
+    alias dbfast2="switch_to_data_dir dbfast2 demoDataDir1"
+    alias dbfast3="switch_to_data_dir dbfast3 demoDataDir2"
+    alias dbfast_mirror1="switch_to_data_dir dbfast1 demoDataDir0"
+    alias dbfast_mirror2="switch_to_data_dir dbfast2 demoDataDir1"
+    alias dbfast_mirror3="switch_to_data_dir dbfast3 demoDataDir2"
 }
 
 
