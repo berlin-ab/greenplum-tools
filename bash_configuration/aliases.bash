@@ -110,7 +110,7 @@ setup_gpdb_navigation() {
     alias 4="setup_gpdb_4"
   
     alias merge="cd_to_workspace gpdb-postgres-merge && $SOURCE_GREENPLUM && $SOURCE_DEMO_ENV"
-    alias tools="cd_to_workspace gpdb-tools"
+    alias tools="cd_to_workspace greenplum-tools"
 
     # Once a version has been chosen
     # switch to data directories

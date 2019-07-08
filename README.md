@@ -9,13 +9,13 @@
 
 1.
 
-`source /path/to/gpdb-tools/setup.bash`
+`source /path/to/greenplum-tools/setup.bash`
 
 2. 
 
 Edit your emacs configuration to include:
 
-`(load-file "~/workspace/gpdb-tools/emacs-config.el")`
+`(load-file "~/workspace/greenplum-tools/emacs-config.el")`
 
 
 ## Aliases
@@ -37,7 +37,7 @@ Switching to gpdb4: ~/workspace/gpdb4
 
 ```
 $ tools
-Switching to gpdb-tools: ~/workspace/gpdb-tools
+Switching to greenplum-tools: ~/workspace/greenplum-tools
 ```
 
 ### pglog: changes directory to and opens a tail of the latest log file in the master pg_log directory
@@ -70,5 +70,5 @@ jdoe+  15220  0.0  0.0 347644  5736 ?        Ss   09:40   0:00 postgres: 16432, 
   - $HOME/workspace/gpdb4 # greenplum-db/gpdb4/4.3_STABLE
   - $HOME/workspace/gpdb5 # greenplum-db/gpdb/5X_STABLE
   - $HOME/workspace/gpdb # greenplum-db/gpdb/master
-  - $HOME/workspace/gpdb-tools # berlin-ab/gpdb-tools/master
+  - $HOME/workspace/greenplum-tools # berlin-ab/greenplum-tools/master
 
