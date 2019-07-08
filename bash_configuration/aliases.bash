@@ -22,11 +22,19 @@ kill_pids() {
 }
 
 
+set_badge() {
+  local workspace_directory=$1;
+  printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n "${workspace_directory}" | base64)
+}
+
+
 cd_to_workspace() {
   local workspace_directory=$1;
   local new_directory="$HOME/workspace/$workspace_directory"
   echo "Switching to $workspace_directory: $new_directory"
   cd "$new_directory";
+
+  set_badge $workspace_directory
 }
 
 
