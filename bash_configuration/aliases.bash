@@ -23,8 +23,8 @@ kill_pids() {
 
 
 set_badge() {
-  local workspace_directory=$1;
-  printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n "${workspace_directory}" | base64)
+  local badge_name=$1;
+  printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n "${badge_name}" | base64)
 }
 
 
