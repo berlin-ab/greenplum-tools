@@ -12,7 +12,7 @@ install_dotfile() {
 
 setup_dotfiles() {
     local tools_directory=$1
-    local dotfiles=(psqlrc gitignore_global)
+    local dotfiles=(psqlrc gitignore_global emacs)
 
     for dotfile_name in ${dotfiles[*]}; do
 	install_dotfile "$tools_directory" "${dotfile_name}"

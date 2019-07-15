@@ -3,17 +3,17 @@
 ;;; GPDB tools emacs configuration
 ;;;
 ;;;
-
 (defun main ()
-
+  
   (defun install-third-party-packages ()
     (package-initialize)
+    
+    (eval-when-compile (require 'use-package))
 
     (add-to-list 'package-archives
 		 '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
     ;; Install these third-party packages
-    (require 'use-package)
     (use-package flycheck :ensure t)
     (use-package real-auto-save :ensure t)
     (use-package neotree :ensure t)
@@ -90,10 +90,6 @@
     (which-function-mode t))
 
 
-  (defun load-greenplum-emacs-configuration ()
-    (load-file "~/workspace/gpdb/src/tools/editors/emacs.samples"))
-
-
   (defun show-line-numbers-in-gutter ()
     (global-linum-mode t)
     (git-gutter:linum-setup)
@@ -121,7 +117,6 @@
   (configure-theme)
   (setup-keyboard-shortcuts)
   (require-and-configure-third-party-libraries)
-  (load-greenplum-emacs-configuration)
   (setup-flycheck)
   (display-current-function)
   (setup-rainbow-parentheses)
