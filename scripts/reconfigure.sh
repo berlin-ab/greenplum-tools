@@ -1,13 +1,14 @@
 echo "Reconfiguring $PWD"
 
+
 echo "Re-running configure."
-./configure --silent CC='ccache gcc' \
+./configure \
+            CC='ccache gcc' \
 	    --prefix=${PWD}/gpAux/greenplum-db-devel \
 	    --with-libxml \
 	    --with-python \
 	    --with-perl \
 	    --without-zstd \
-	    --disable-orca \
 	    --disable-gpfdist \
 	    --with-openssl \
 	    --enable-tap-tests \
@@ -16,6 +17,8 @@ echo "Re-running configure."
 	    --enable-cassert \
 	    --enable-tap-tests \
 	    --enable-depend \
-	    CFLAGS='-O0' \
-	    CXXFLAGS='-O0'
+	    --enable-coverage \
+	    CXXFLAGS='-O0 -g -I /usr/local/include' \
+	    CPPFLAGS='-I /usr/local/include -I /usr/local/opt/openssl/include' \
+	    LDFLAGS='-L /usr/local/opt/openssl/lib -L /usr/local/lib' "$@"
 
