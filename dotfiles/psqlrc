@@ -1,2 +1,8 @@
+-- psql commands
 \timing on
-set client_min_messages to debug;
+\set ECHO all
+\pset null (null)
+
+-- sql commands
+set client_min_messages to log;
+set optimizer to off;
