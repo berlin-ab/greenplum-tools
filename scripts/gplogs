@@ -4,8 +4,7 @@ set -o nounset
 
 main() {
     local csv_files=$(find $MASTER_DATA_DIRECTORY/../../ -name *.csv)
-    local sorted_files_by_date=$(ls -tr $csv_files)
-    gplogfilter $@ $sorted_files_by_date
+    prepend-dates-in-log-file ${csv_files} | gplogfilter $@ -
 }
 
 main $@
