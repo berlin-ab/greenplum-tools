@@ -90,12 +90,6 @@
     (which-function-mode t))
 
 
-  (defun show-line-numbers-in-gutter ()
-    (global-linum-mode t)
-    (git-gutter:linum-setup)
-    )
-
-
   (defun highlight-the-current-buffer ()
     (require 'dimmer)
     (dimmer-mode))
@@ -120,7 +114,6 @@
   (setup-flycheck)
   (display-current-function)
   (setup-rainbow-parentheses)
-  (show-line-numbers-in-gutter)
   (setup-git-gutter)
   (highlight-the-current-buffer)
   (enable-autocompletion)
