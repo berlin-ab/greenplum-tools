@@ -1,40 +1,69 @@
 #!/usr/bin/env python
 
 import sys
-import os
 import re
+import os
+
+
+GREENPLUM_LOG_LINE_EXPRESSION = r'\d+-\d+-\d+.*,.*,.*,.*,.*,.*,.*,.*,.*,.*,.*,.*,.*,.*,.*,.*'
+
+
+class GreenplumLogFile():
+    def __init__(self, path):
+        self.path = path
+        self.current_beginning = ""
+
+    def _lines(self):
+        file = open(self.path, 'r')
+        return file.readlines()
+    
+    def process(self):
+        for line in self._lines():
+            sys.stdout.write(
+                self.process_line(line)
+            )
+
+    def process_line(self, line):
+        new_beginning = self._get_new_beginning(line)
+
+        if not new_beginning:
+            return self._formatted_line(line)
+
+        self._set_new_current(new_beginning)
+        
+        return line
+
+    def _get_new_beginning(self, line):
+        match = re.match(GREENPLUM_LOG_LINE_EXPRESSION, line)
+        
+        if not match: 
+            return None
+        
+        return match.group(0)
+    
+    def _set_new_current(self, beginning):
+        self.current_beginning = beginning
+        
+    def _formatted_line(self, line):
+        return "{current_beginning},{line}".format(
+            current_beginning=self.current_beginning,
+            line=line
+        )
 
 
 def process_file(file_path):
-    file = None
-    
-    try:
-        file = open(file_path, 'r')
-        
-    except:
-        print("file does not exist: {file_path}".format(file_path=file_path))
-        exit(1)
+    file = GreenplumLogFile(file_path)
+    file.process()
 
-    current_beginning = ""
-    
-    for line in file.readlines():
-        match = re.match(r'\d+-\d+-\d+.*,.*,.*,.*,.*,.*,.*,.*,.*,.*,.*,.*,.*,.*,.*,.*', line)
-        
-        if match != None:
-            current_beginning = match.group(0)
-
-        line_to_print = line
-        
-        if match == None:
-            line_to_print = "{current_beginning},{line}".format(current_beginning=current_beginning, line=line)
-
-        sys.stdout.write(line_to_print)
-    
 
 def main():
     file_paths = sys.argv[1:]
 
     for file_path in file_paths:
+        if not os.path.isfile(file_path):
+            print("could not find file: %s" % file_path)
+            exit(1)
+            
         process_file(file_path)
 
 
