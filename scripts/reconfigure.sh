@@ -17,7 +17,6 @@ echo "Re-running configure."
 	    --enable-cassert \
 	    --enable-tap-tests \
 	    --enable-depend \
-	    --enable-coverage \
 	    CXXFLAGS='-O0 -g -I /usr/local/include' \
 	    CPPFLAGS='-I /usr/local/include -I /usr/local/opt/openssl/include' \
 	    LDFLAGS='-L /usr/local/opt/openssl/lib -L /usr/local/lib' "$@"
