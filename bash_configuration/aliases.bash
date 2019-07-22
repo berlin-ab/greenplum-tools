@@ -127,6 +127,7 @@ setup_gpdb_navigation() {
 setup_debugging_tools() {
     alias p='ps auxww | grep postgres'
     alias pglog='tail_last_logfile'
+    alias make='time make'
 }
 
 
