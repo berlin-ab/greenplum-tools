@@ -2,6 +2,10 @@
 \timing on
 \set ECHO all
 \pset null (null)
+\set HISTSIZE 100000
+\pset linestyle unicode 
+\pset border 2
+\setenv PAGER 'pspg -b --no-commandbar --no-topbar'
 
 -- sql commands
 set client_min_messages to log;
