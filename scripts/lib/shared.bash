@@ -14,6 +14,12 @@ change_to_isolation2_directory() {
 }
 
 
+switch_to_regression_directory() {
+    change_to_project_root
+    cd src/test/regress;
+}
+
+
 quick_reinstall() {
     make install -s
 }

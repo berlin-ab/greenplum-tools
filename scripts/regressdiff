@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+
+set -e
+
+
+source "$(dirname $0)/lib/shared.bash";
+
+
+fail() {
+	exit 1
+}
+
+
+validate_file_exists() {
+	local file=$1
+
+	if [ ! -f "$file" ]; then
+		echo "error: file ${file} does not exist"
+		fail
+	fi
+}
+
+
+validate_parameter() {
+	local parameter="$1"
+
+	if [ -z "$parameter" ]; then
+		echo "Error: must pass test name to diff"
+		echo ""
+		echo "usage:"
+		echo ""
+		echo "    regressdiff some_test_to_diff"
+		echo ""
+		fail
+	fi
+}
+
+
+main() {
+	local filename=$1
+	local expected="expected/${filename}.out"
+	local results="results/${filename}.out"
+	local expected_source="output/${filename}.source"
+
+	validate_parameter "$filename"
+	switch_to_regression_directory
+	validate_file_exists "$expected"
+	validate_file_exists "$results"
+
+	if [ -f "$expected_source" ]; then
+		expected="$expected_source"
+	fi
+
+	clion diff "$expected" "$results"
+}
+
+
+main "$@"
