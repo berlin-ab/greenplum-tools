@@ -1,6 +1,7 @@
 -- psql commands
 \timing on
 \set ECHO all
+\set VERBOSITY verbose
 \pset null (null)
 \set HISTSIZE 100000
 \pset linestyle unicode 
