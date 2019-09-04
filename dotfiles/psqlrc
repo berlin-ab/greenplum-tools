@@ -9,7 +9,6 @@
 -- Setup pspg pager
 \pset linestyle unicode 
 \pset border 2
-\setenv PAGER 'pspg -b --no-commandbar --no-topbar'
 
 
 -- sql commands
@@ -18,3 +17,5 @@ set client_min_messages to log;
 
 -- gpdb config
 set optimizer to off;
+
+select pg_backend_pid();
