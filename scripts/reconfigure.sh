@@ -8,7 +8,7 @@ echo "Re-running configure."
 	    --with-libxml \
 	    --with-python \
 	    --with-perl \
-	    --without-zstd \
+	    --with-zstd \
 	    --disable-gpfdist \
 	    --with-openssl \
 	    --enable-tap-tests \
@@ -17,7 +17,8 @@ echo "Re-running configure."
 	    --enable-cassert \
 	    --enable-tap-tests \
 	    --enable-depend \
+	    "$@" \
 	    CXXFLAGS='-O0 -g -I /usr/local/include' \
 	    CPPFLAGS='-I /usr/local/include -I /usr/local/opt/openssl/include' \
-	    LDFLAGS='-L /usr/local/opt/openssl/lib -L /usr/local/lib' "$@"
-
+	    LDFLAGS='-L /usr/local/opt/openssl/lib -L /usr/local/lib'
+	    
