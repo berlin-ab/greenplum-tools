@@ -118,9 +118,9 @@ setup_gpdb_navigation() {
     alias dbfast1="switch_to_data_dir dbfast1 demoDataDir0"
     alias dbfast2="switch_to_data_dir dbfast2 demoDataDir1"
     alias dbfast3="switch_to_data_dir dbfast3 demoDataDir2"
-    alias dbfast_mirror1="switch_to_data_dir dbfast1 demoDataDir0"
-    alias dbfast_mirror2="switch_to_data_dir dbfast2 demoDataDir1"
-    alias dbfast_mirror3="switch_to_data_dir dbfast3 demoDataDir2"
+    alias dbfast_mirror1="switch_to_data_dir dbfast_mirror1 demoDataDir0"
+    alias dbfast_mirror2="switch_to_data_dir dbfast_mirror2 demoDataDir1"
+    alias dbfast_mirror3="switch_to_data_dir dbfast_mirror3 demoDataDir2"
 }
 
 
