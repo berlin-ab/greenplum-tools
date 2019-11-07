@@ -17,5 +17,5 @@ echo "Re-running configure."
 	    --enable-tap-tests \
 	    --enable-depend \
 	    CFLAGS='-O0' \
-	    CXXFLAGS='-O0'
+	    CXXFLAGS='-O0' "$@"
 
