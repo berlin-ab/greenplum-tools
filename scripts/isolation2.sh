@@ -12,7 +12,6 @@ run_isolation2() {
 	make install -s
 
    ./pg_isolation2_regress \
-		--tablespace-dir=/tmp/tablespace-dir \
 		--init-file ../regress/init_file \
 		$@
 }
