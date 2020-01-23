@@ -108,6 +108,7 @@ setup_gpdb_navigation() {
     alias 6="setup_gpdb_6"
     alias 5="setup_gpdb_5"
     alias 4="setup_gpdb_4"
+    alias upgrade="cd $GOPATH/src/github.com/greenplum-db/gpupgrade/"
   
     alias merge="cd_to_workspace gpdb-postgres-merge && $SOURCE_GREENPLUM && $SOURCE_DEMO_ENV"
     alias tools="cd_to_workspace greenplum-tools"
