@@ -49,20 +49,12 @@ source_gpdemo() {
 
 
 setup_gpdb_7() {
-    export MASTER_PORT=7000;
-    export STANDBY_PORT=7001;
-    export PORT_BASE=7002;
-
     cd_to_workspace gpdb7
     source_greenplum
     source_gpdemo
 }
 
-setup_gpdb_6() {
-    export MASTER_PORT=6000;
-    export STANDBY_PORT=6001;
-    export PORT_BASE=6002;
-    
+setup_gpdb_6() {    
     cd_to_workspace gpdb6
     source_greenplum
     source_gpdemo
